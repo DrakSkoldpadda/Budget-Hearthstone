@@ -28,7 +28,7 @@ public class CardRotation : MonoBehaviour
         if (passedThroughTargetCollider != showingBack)
         {
             showingBack = passedThroughTargetCollider;
-            if (showingBack)
+            if (showingBack == true)
             {
                 cardFront.gameObject.SetActive(false);
                 cardBack.gameObject.SetActive(true);

@@ -2,8 +2,9 @@
 
 public enum HeroClass
 {
-    WARRIOR,
-    PRIEST
+    DragonTurtle,
+    Magma,
+    Kevak
 }
 
 [CreateAssetMenu(fileName = "New Hero", menuName = "Player/Hero")]

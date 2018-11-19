@@ -2,10 +2,8 @@
 
 public class Draggable : MonoBehaviour
 {
-    public bool useCursorOffset = true;
-
-    private DraggableActions da;
     private bool isDragging;
+    private DraggableActions da;
     private Vector3 cursorOffset = Vector3.zero;
     private float zOffset;
 
@@ -19,7 +17,6 @@ public class Draggable : MonoBehaviour
         if (isDragging == true)
         {
             Vector3 mousePos = MouseInWorldCordinates();
-            da.OnDraggingInUpdate();
             transform.position = new Vector3(mousePos.x - cursorOffset.x, mousePos.y - cursorOffset.y, transform.position.z);
         }
     }
@@ -29,17 +26,10 @@ public class Draggable : MonoBehaviour
         if (da.CanDrag == true)
         {
             isDragging = true;
-            da.OnDraggingInUpdate();
             zOffset = -Camera.main.transform.position.z + transform.position.z;
+            da.OnStartDrag();
 
-            if (useCursorOffset == true)
-            {
-                cursorOffset = -transform.position + MouseInWorldCordinates();
-            }
-            else
-            {
-                cursorOffset = Vector3.zero;
-            }
+            cursorOffset = -transform.position + MouseInWorldCordinates();
         }
     }
 

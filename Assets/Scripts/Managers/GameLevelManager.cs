@@ -19,6 +19,8 @@ public class GameLevelManager : MonoBehaviour
     public Button endTurnButton;
     public Button startTurnButton;
 
+    public Text turnText;
+
     void Start()
     {
         PlayerSetUp();
@@ -30,12 +32,17 @@ public class GameLevelManager : MonoBehaviour
 
     void Update()
     {
-        CurrentMana();
+        //CurrentMana();
+
+        turnText.text = currentTurn.ToString();
     }
 
     void CurrentMana()
     {
-
+        //for (int i = 21; i > activeMana; i--)
+        //{
+        //    manaCrystals[i].SetActive(false);
+        //}
     }
 
     void PlayerSetUp()

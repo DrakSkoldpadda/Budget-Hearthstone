@@ -225,6 +225,8 @@ MonoBehaviour:
   armorText: {fileID: 114861507403186512}
   attackText: {fileID: 114583015226648108}
   heroImage: {fileID: 114939385799078764}
+  attackImage: {fileID: 114635276028577198}
+  armorImage: {fileID: 114395847247465600}
 --- !u!114 &114172361485338106
 MonoBehaviour:
   m_ObjectHideFlags: 1

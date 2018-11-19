@@ -6,8 +6,6 @@ public abstract class DraggableActions : MonoBehaviour
 
     public abstract void OnEndDrag();
 
-    public abstract void OnDraggingInUpdate();
-
     public virtual bool CanDrag
     {
         get
