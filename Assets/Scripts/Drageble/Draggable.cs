@@ -2,7 +2,7 @@
 
 public class Draggable : MonoBehaviour
 {
-    private bool isDragging;
+    public bool isDragging;
     private DraggableActions da;
     private Vector3 cursorOffset = Vector3.zero;
     private float zOffset;
@@ -19,26 +19,34 @@ public class Draggable : MonoBehaviour
             Vector3 mousePos = MouseInWorldCordinates();
             transform.position = new Vector3(mousePos.x - cursorOffset.x, mousePos.y - cursorOffset.y, transform.position.z);
         }
-    }
 
-    void OnMouseDown()
-    {
-        if (da.CanDrag == true)
+        if (Input.GetMouseButtonDown(0))
         {
-            isDragging = true;
-            zOffset = -Camera.main.transform.position.z + transform.position.z;
-            da.OnStartDrag();
+            if (da.CanDrag == true)
+            {
+                isDragging = true;
+                zOffset = -Camera.main.transform.position.z + transform.position.z;
+                da.OnStartDrag();
 
-            cursorOffset = -transform.position + MouseInWorldCordinates();
+                cursorOffset = -transform.position + MouseInWorldCordinates();
+            }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isDragging == true)
+            {
+                isDragging = false;
+                da.OnEndDrag();
+            }
         }
     }
 
-    void OnMouseUp()
+    void OnTriggerEnter(Collider col)
     {
-        if (isDragging == true)
+        if (col.CompareTag("PlayerSpawns"))
         {
-            isDragging = false;
-            da.OnEndDrag();
+
         }
     }
 

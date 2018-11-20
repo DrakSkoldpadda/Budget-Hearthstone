@@ -32,17 +32,24 @@ public class GameLevelManager : MonoBehaviour
 
     void Update()
     {
-        //CurrentMana();
+        CurrentMana();
 
         turnText.text = currentTurn.ToString();
     }
 
     void CurrentMana()
     {
-        //for (int i = 21; i > activeMana; i--)
-        //{
-        //    manaCrystals[i].SetActive(false);
-        //}
+        for (int i = 0; i < manaCrystals.Length; i++)
+        {
+            if (i < activeMana)
+            {
+                manaCrystals[i].SetActive(true);
+            }
+            else
+            {
+                manaCrystals[i].SetActive(false);
+            }
+        }
     }
 
     void PlayerSetUp()
@@ -73,5 +80,6 @@ public class GameLevelManager : MonoBehaviour
     {
         startTurnButton.gameObject.SetActive(true);
         endTurnButton.gameObject.SetActive(false);
+        currentMaxMana++;
     }
 }
